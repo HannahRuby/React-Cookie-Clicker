@@ -1,0 +1,56 @@
+* {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+.text {
+  width: 300px;
+  display: flex;
+  position: relative;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  height: 30px;
+  background-color: rgb(81, 81, 100);
+  padding: 10px;
+  border: solid;
+  flex-direction: column;
+}
+
+p img {
+  margin-top: 70px;
+  width: 300px;
+  cursor: pointer;
+  animation: rotate 100s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#buttons {
+  width: 100%;
+}
+#upGrades button {
+  background-color: grey;
+  border: 3px solid gold;
+  color: inherit;
+  font-family: monospace;
+  padding: 16px 24px;
+  cursor: pointer;
+}
+#upGrade:hover {
+  border-color: #646cff;
+}
+.Header {
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+}
