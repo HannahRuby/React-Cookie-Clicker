@@ -1,10 +1,32 @@
 * {
+  margin: 0px;
+  padding: 0px;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 }
 
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  padding: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  box-sizing: border-box;
+}
+
+.wrapper div {
+  display: flex;
+  border: solid white;
+  height: 80vh;
+  margin-top: 80px;
+  padding: 10px;
+  align-items: center;
+  flex-direction: column;
+}
 .text {
   width: 300px;
   display: flex;
@@ -35,22 +57,57 @@ p img {
   }
 }
 
-#buttons {
-  width: 100%;
+p img:active {
+  animation: shake 0.5s;
 }
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#shop,
+#reset {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  height: 50px;
+}
+#upGrades {
+  display: flex;
+  align-content: space-between;
+  gap: 30px;
+}
+
 #upGrades button {
   background-color: grey;
-  border: 3px solid gold;
-  color: inherit;
-  font-family: monospace;
-  padding: 16px 24px;
+  font-family: inherit;
+  padding: 10px;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  height: 50px;
+  width: 250px;
+  display: flex;
+  position: relative;
+  justify-content: center;
 }
 #upGrade:hover {
   border-color: #646cff;
-}
-.Header {
-  justify-content: center;
-  position: absolute;
-  text-align: center;
 }

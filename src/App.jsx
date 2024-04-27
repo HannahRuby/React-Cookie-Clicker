@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import Header from "./Header.jsx";
+import "./App.css";
 
 export default function App() {
   const [cookies, setCookies] = useState(0);
@@ -45,46 +47,52 @@ export default function App() {
   }
 
   function buyBronze() {
-    if (cookies >= 20) {
+    const bronzeCost = 20;
+
+    if (cookies >= bronzeCost) {
       setCps(cps + 3);
-      setCookies(cookies - 20);
+      setCookies(cookies - bronzeCost);
     } else {
-      alert(" We are just warming up,upgrade please!");
+      alert("Insufficient cookies to buy Bronze Experience!");
     }
   }
   function buySilver() {
-    if (cookies >= 100) {
+    const silverCost = 100;
+    if (cookies >= silverCost) {
       setCps(cps + 20);
-      setCookies(cookies - 100);
+      setCookies(cookies - silverCost);
     } else {
-      alert("Wow, you smashed it!Time to upgrade!");
+      alert("Wow, you are smashed this!Time to upgrade!");
     }
   }
 
   function buyGold() {
-    if (cookies >= 250) {
+    const goldCost = 500;
+    if (cookies >= goldCost) {
       setCps(cps + 50);
-      setCookies(cookies - 250);
+      setCookies(cookies - goldCost);
     } else {
-      alert("Time to upgrade!");
+      alert("Don't stop,upgrade again!");
     }
   }
 
   function buyPlatinum() {
-    if (cookies >= 1000) {
+    const platinumCost = 1000;
+    if (cookies >= platinumCost) {
       setCps(cps + 50);
-      setCookies(cookies - 1000);
+      setCookies(cookies - platinumCost);
     } else {
-      alert("Time to upgrade again!");
+      alert("OMG,you are on fire!Upgrade now!");
     }
   }
 
   function buyIsland() {
-    if (cookies >= 10000) {
+    const islandCost = 10000;
+    if (cookies >= islandCost) {
       setCps(cps + 100);
-      setCookies(cookies - 10000);
+      setCookies(cookies - islandCost);
     } else {
-      alert("Time to upgrade!");
+      alert("You are in Heaven!");
     }
   }
 
@@ -92,33 +100,52 @@ export default function App() {
     setShowInfo(!showInfo);
   }
   function resetCookies() {
-    setCookies(0);
+    setCookies(setCookies - setCookies);
     setCps(0);
   }
   return (
     <div class="wrapper">
+      <>
+        <Header />
+      </>
       <div>
         <p class="cookie">
           <img
             onClick={addCookie}
-            src="public/Cookie-Download-PNG.png"
+            src="/Cookie-Download-PNG.png"
             alt="giant cookie"
           ></img>
         </p>
         <p class="text">Cookies {displayTotal}</p>
         <p className="text"> {cps} cookies per second</p>
       </div>
-      <div id="upGrades">
-        {showInfo ? (
-          <>
-            <button onClick={buyBronze}>Bronze Experience</button>
-            <button onClick={buySilver}>Silver Experience </button>
-            <button onClick={buyGold}>Gold Experience</button>
-            <button onClick={buyPlatinum}>Platinum Experience</button>
-            <button onClick={buyIsland}>Island </button>
-            <button onClick={resetCookies}>Reset</button>
-          </>
-        ) : null}
+
+      <div>
+        <button onClick={upGrades} id="shop">
+          Shop
+        </button>
+        {showInfo && (
+          <div id="upGrades">
+            {cookies >= 20 && (
+              <button onClick={buyBronze}>Bronze Experience</button>
+            )}
+            {cookies >= 100 && (
+              <button onClick={buySilver}>Silver Experience </button>
+            )}
+            {cookies >= 500 && (
+              <button onClick={buyGold}>Gold Experience</button>
+            )}
+            {cookies >= 1000 && (
+              <button onClick={buyPlatinum}>Platinum Experience</button>
+            )}
+            {cookies >= 10000 && (
+              <button onClick={buyIsland}>Island Experience</button>
+            )}
+          </div>
+        )}
+        <button onClick={resetCookies} id="reset">
+          Reset
+        </button>
       </div>
     </div>
   );

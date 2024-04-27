@@ -1,6 +1,13 @@
 .header {
-  background-color: aquamarine;
-  color: fff;
-  padding: 20px;
+  display: flex;
+  background-image: url("./logo-removebg-preview.png");
+  flex-direction: column;
+  background: linear-gradient(#e66465, #9198e5);
+  justify-content: center;
+  position: absolute;
+  text-align: center;
   border-bottom: solid;
+  width: 100vw;
+  height: 80px;
+  font-style: italic;
 }
