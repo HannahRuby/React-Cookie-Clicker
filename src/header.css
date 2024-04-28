@@ -1,6 +1,5 @@
 .header {
   display: flex;
-  background-image: url("./logo-removebg-preview.png");
   flex-direction: column;
   background: linear-gradient(#e66465, #9198e5);
   justify-content: center;
@@ -10,4 +9,9 @@
   width: 100vw;
   height: 80px;
   font-style: italic;
+}
+
+.header img {
+  height: 100px;
+  width: 100px;
 }

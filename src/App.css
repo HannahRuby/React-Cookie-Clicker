@@ -42,7 +42,27 @@
   flex-direction: column;
 }
 
+#store {
+  @keyframes confetti {
+    0% {
+      transform: translateY(0) rotate(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-200vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  #store {
+    animation: confetti 2s forwards;
+    background-image: linear-gradient(to right, #ffdfba, #f4ac45);
+    /* Add any additional styles for the purchased button */
+  }
+}
+
 p img {
+  margin: 50px;
   margin-top: 70px;
   width: 300px;
   cursor: pointer;
@@ -79,7 +99,7 @@ p img:active {
   }
 }
 
-#shop,
+#store button,
 #reset {
   width: 100%;
   font-size: 1rem;
@@ -88,14 +108,14 @@ p img:active {
   border-radius: 10px;
   height: 50px;
 }
-#upGrades {
+#UpgradeShop {
   display: flex;
-  align-content: space-between;
+  align-content: space-evenly;
   gap: 30px;
 }
 
-#upGrades button {
-  background-color: grey;
+#store button {
+  background-color: blue;
   font-family: inherit;
   padding: 10px;
   cursor: pointer;
@@ -107,7 +127,8 @@ p img:active {
   display: flex;
   position: relative;
   justify-content: center;
+  align-content: space-around;
 }
-#upGrade:hover {
+#store:hover {
   border-color: #646cff;
 }
